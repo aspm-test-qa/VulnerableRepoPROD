@@ -16,7 +16,7 @@ jobs:
       - name: Get source code
         uses: cloudbees-io/checkout@v1 
       - id: build-container
-        name: Build container image
+        name: Build container Image
         uses: docker://gcr.io/kaniko-project/executor:debug
         run: |
           /kaniko/executor --context $CLOUDBEES_WORKSPACE --build-arg USER=cbp-qa-automation,TOKEN=${{ secrets.GH_SECURITY_PAT }} --dockerfile $CLOUDBEES_WORKSPACE/Dockerfile --tar-path $CLOUDBEES_WORKSPACE/container-image.tar --no-push
