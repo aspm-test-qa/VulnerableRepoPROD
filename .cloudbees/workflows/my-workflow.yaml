@@ -20,7 +20,7 @@ jobs:
         uses: docker://gcr.io/kaniko-project/executor:debug
         run: |
           /kaniko/executor --context $CLOUDBEES_WORKSPACE --build-arg USER=cbp-qa-automation,TOKEN=${{ secrets.GH_SECURITY_PAT }} --dockerfile $CLOUDBEES_WORKSPACE/Dockerfile --tar-path $CLOUDBEES_WORKSPACE/container-image.tar --no-push
-      - id: upload-binary
+      - id: upload-binary 
         name: Upload binary using action
         uses: cloudbees-io/asset-chain-utils-preprod/upload-binary@v1
         with:
